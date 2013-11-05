@@ -30,6 +30,7 @@ void at91_gmacb_hw_init(void);
 void at91_lcd_hw_init(void);
 void at91_macb_hw_init(void);
 void at91_mci_hw_init(void);
+void at91_mci1_hw_init(void);
 void at91_serial0_hw_init(void);
 void at91_serial1_hw_init(void);
 void at91_serial2_hw_init(void);

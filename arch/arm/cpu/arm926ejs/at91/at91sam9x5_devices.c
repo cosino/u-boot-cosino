@@ -82,6 +82,8 @@ void at91_serial0_hw_init(void)
 
 	at91_set_a_periph(AT91_PIO_PORTA, 0, 1);	/* TXD */
 	at91_set_a_periph(AT91_PIO_PORTA, 1, 0);	/* RXD */
+	at91_set_a_periph(AT91_PIO_PORTA, 2, 0);        /* RTS */
+	at91_set_a_periph(AT91_PIO_PORTA, 3, 0);        /* CTS */
 
 	writel(1 << ATMEL_ID_USART0, &pmc->pcer);
 }
@@ -119,6 +121,20 @@ void at91_mci_hw_init(void)
 	/* Enable clock for MCI0 */
 	struct at91_pmc *pmc = (struct at91_pmc *)ATMEL_BASE_PMC;
 	writel(1 << ATMEL_ID_HSMCI0, &pmc->pcer);
+}
+
+void at91_mci1_hw_init(void)
+{
+	/* Initialize the MCI1 */
+	at91_set_b_periph(AT91_PIO_PORTA, 13, 1);	/* MCCK */
+	at91_set_b_periph(AT91_PIO_PORTA, 12, 1);	/* MCCDA */
+	at91_set_b_periph(AT91_PIO_PORTA, 11, 1);	/* MCDA0 */
+	at91_set_b_periph(AT91_PIO_PORTA,  2, 1);	/* MCDA1 */
+	at91_set_b_periph(AT91_PIO_PORTA,  3, 1);	/* MCDA2 */
+	at91_set_b_periph(AT91_PIO_PORTA,  4, 1);	/* MCDA3 */
+
+	/* Enable clock for MCI1 */
+	writel(1 << ATMEL_ID_HSMCI1, &pmc->pcer);
 }
 
 #ifdef CONFIG_ATMEL_SPI

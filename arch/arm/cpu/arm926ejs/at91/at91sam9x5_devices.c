@@ -134,6 +134,7 @@ void at91_mci1_hw_init(void)
 	at91_set_b_periph(AT91_PIO_PORTA,  4, 1);	/* MCDA3 */
 
 	/* Enable clock for MCI1 */
+	struct at91_pmc *pmc = (struct at91_pmc *)ATMEL_BASE_PMC;
 	writel(1 << ATMEL_ID_HSMCI1, &pmc->pcer);
 }
 

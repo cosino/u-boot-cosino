@@ -132,6 +132,9 @@ endif
 ifeq ($(VENDOR),atmel)
 LOGO_BMP= logos/atmel.bmp
 endif
+ifeq ($(VENDOR),hce)
+LOGO_BMP= logos/cosino.bmp
+endif
 ifeq ($(VENDOR),esd)
 LOGO_BMP= logos/esd.bmp
 endif

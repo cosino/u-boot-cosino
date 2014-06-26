@@ -290,6 +290,11 @@ int board_init(void)
 	cosino_nand_hw_init();
 #endif
 
+#ifdef CONFIG_ATMEL_SPI
+	/* We use SPI1 ony with GPIOs driven CS! */
+	at91_spi1_hw_init(0);
+#endif
+
 #ifdef CONFIG_MACB
 	at91_macb_hw_init();
 #endif
